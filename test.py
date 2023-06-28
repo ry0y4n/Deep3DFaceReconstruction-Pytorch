@@ -46,9 +46,7 @@ for name in img_lst:
 
     recon = tensor2img(recon)
     show = np.concatenate((J, recon), 1)
-    cv2.imshow('I', show[...,::-1])
-    key = cv2.waitKey(0)
-    if key == ord('q'):
-        break
+    output_img_path = os.path.join('./results/images/', name)
+    cv2.imwrite(output_img_path, show[...,::-1])
 
 cv2.destroyAllWindows()
